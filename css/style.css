@@ -6,12 +6,15 @@ body {
 }
 
 header {
-    min-height: 5rem;
+    min-height: 8rem;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    align-content: flex-start;
+    align-content: center;
     justify-content: flex-start;
+    color: #778;
+    border-left: 8px solid rgba(118, 152, 178, 0.8);
+    border-right: 8px solid rgba(118, 152, 178, 0.8);
 }
 
 h1, h2, h3 {
@@ -101,7 +104,7 @@ p {
     align-content: flex-start;
     align-items: center;
     justify-content: center;
-    margin: 0.5rem auto auto;
+    margin: 0rem auto 0.5rem;
     padding: 0.5rem;
     background-color: rgba(118, 152, 178, 0.2);
     min-width: 320px;
