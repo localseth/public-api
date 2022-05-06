@@ -1,6 +1,17 @@
+html {
+    background-color: #ececec;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: space-between;
     position: relative;
     width: 85%;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
 }
@@ -13,8 +24,22 @@ header {
     align-content: center;
     justify-content: flex-start;
     color: #778;
-    border-left: 8px solid rgba(118, 152, 178, 0.8);
-    border-right: 8px solid rgba(118, 152, 178, 0.8);
+}
+
+footer {
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 300;
+    color: rgba(100, 100, 100, 0.5);
+    /* background-color: rgb(196, 206, 215); */
+    display: flex;
+    flex-flow: column;
+    align-self: center;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    order: 1;
+    padding: 3rem;
+    margin-top: auto;
 }
 
 h1, h2, h3 {
@@ -34,6 +59,13 @@ p {
 .name {
     font-weight: 600;
     text-align: left;
+}
+
+.social {
+    height: 32px;
+    width: auto;
+    opacity: 0.5;
+    margin: 1rem;
 }
 
 .overlay {
@@ -76,17 +108,17 @@ p {
 .card {
     display: flex;
     align-self: start;
-    justify-content: center;
+    flex-grow: 1;
+    justify-content: space-evenly;
     align-content: space-between;
     align-items: center;
     flex-basis: 0;
-    background-color: whitesmoke;
+    background-color: #f4f4f4;
     padding: 0.5rem;
     margin: 0.75rem;
     border: 1px solid darkgrey;
     border-radius: 4px;
     min-width: 300px;
-    max-width: 100%;
     text-align: left;
     box-shadow: 0px 0px 3px rgba(100, 100, 100, 0.15);
 }
@@ -96,20 +128,24 @@ p {
     max-width: 100px;
     height: auto;
     border-radius: 50%;
+    align-self: flex-start;
 }
 
 .grid-container {
     display: flex;
     flex-flow: row wrap;
+    flex-grow: 1;
     align-content: flex-start;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: space-between;
     margin: 0rem auto 0.5rem;
     padding: 0.5rem;
-    background-color: rgba(118, 152, 178, 0.2);
     min-width: 320px;
     max-width: 1500px;
-    min-height: 100vh;
+}
+
+header,  main, footer {
+    flex-shrink: 0;
 }
 
 .header-container {
