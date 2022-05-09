@@ -7,11 +7,15 @@ const gridContainer = document.querySelector('.grid-container');
 const overlay = document.querySelector('.overlay');
 const modalContainer = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.modal-close');
+const search = document.getElementById('search');
 // -------------------------
 // data calls
 // -------------------------
 fetchData(urlAPI)
-    .then(res => displayEmployees(res.results))
+    .then((res) => {
+        employees = res.results
+        displayEmployees(employees)
+    })
 // -------------------------
 // helper functions
 // -------------------------
@@ -30,15 +34,13 @@ function checkStatus(response) {
     }
 }
 
-function displayEmployees (employeeData) {
-    employees = employeeData;
-
-    employees.forEach((employee, index) => {
-        let name = employee.name;
-        let email = employee.email;
-        let city = employee.location.city;
-        let state = employee.location.state;
-        let picture = employee.picture;
+function displayEmployees (list) {
+    list.forEach((list, index) => {
+        let name = list.name;
+        let email = list.email;
+        let city = list.location.city;
+        let state = list.location.state;
+        let picture = list.picture;
 
         const employeeHTML = `
             <div class="card" data-index="${index}">
@@ -85,15 +87,34 @@ function fixPhoneNum (num) {
     return num;
 }
 
+function filterAndDisplay () {
+    const filterArray = employees.filter(employee => 
+        `${employee.name.first.toLowerCase()} ${employee.name.last.toLowerCase()}`.includes(search.value.toLowerCase())
+    )
+    if (!/^\s*$/g.test(search.value)) {
+        gridContainer.innerHTML = '';
+        if (filterArray.length > 0){
+            displayEmployees(filterArray);
+        }
+        if (filterArray.length === 0) {
+            gridContainer.innerHTML = `<h1>Your search for "${search.value}" returned no results. Please try again.</h1>`;
+        }
+    } else {
+        gridContainer.innerHTML = '';
+        displayEmployees(employees)
+    }
+}
+
 // -------------------------
 // event listeners
 // -------------------------
 gridContainer.addEventListener('click', e => {
-    if (e.target !== gridContainer) {
-        const card = e.target.closest('.card');
-        const index = card.getAttribute('data-index');
-
-        displayModal(index);
+    if (e.target !== gridContainer && e.target !== overlay) {
+        if (e.target.closest('.card') !== null) {
+            const card = e.target.closest('.card');
+            const index = card.getAttribute('data-index');
+            displayModal(index);
+        }
     }
 })
 
@@ -101,3 +122,5 @@ modalClose.addEventListener('click', () => {
     overlay.classList.add('hidden');
     modalContainer.innerHTML = '';
 })
+
+search.addEventListener('input', filterAndDisplay)
