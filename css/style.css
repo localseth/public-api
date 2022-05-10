@@ -369,8 +369,18 @@ hr {
         text-align: center;
     }
 
+    footer {
+        padding: 2rem;
+    }
+
+    footer p {
+        text-align: center;
+    }
+
     input {
+        display: flex;
         flex-grow: 2;
+        flex-shrink: 1;
     }
 
     button {
@@ -391,9 +401,14 @@ hr {
         padding: 2rem;
     }
 
+    .card {
+        min-width: 280px;
+    }
+
     .employee-search .header-container {
         flex-flow: row nowrap;
         width: 100%;
+        min-width: 280px;
         padding: 0px;
         margin: 0px;
         justify-content: space-between;
