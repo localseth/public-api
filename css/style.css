@@ -1,4 +1,4 @@
-/* basic styles */
+/* ---------- basic styles ---------- */
 html {
     background-color: #ececec;
 }
@@ -52,6 +52,11 @@ h1, h2, h3 {
     font-weight: 300;
 }
 
+h1 {
+    text-transform: uppercase;
+    font-size: 1.75rem;
+}
+
 h2 {
     font-weight: 600;
     font-size: 1rem;
@@ -60,6 +65,13 @@ h2 {
 p {
     font-size: 0.75rem;
     color: #778;
+}
+
+.no-results {
+    font-weight: 200;
+    color: rgb(178, 178, 178);
+    margin: 15rem auto 0px;
+    max-width: 80%;
 }
 
 .social {
@@ -76,6 +88,10 @@ p {
     justify-content: center;
     align-items: center;
     align-content: stretch;
+}
+
+.employee-search .header-container {
+    margin: 0px;
 }
 
 button {
@@ -118,7 +134,7 @@ input::placeholder {
     font-size: 1.25rem;
 }
 
-/* card styles */
+/* ---------- card styles ---------- */
 .card {
     display: flex;
     flex-flow: row nowrap;
@@ -179,7 +195,7 @@ input::placeholder {
 }
 
 
-/* overlay styles */
+/* ---------- overlay styles ---------- */
 .overlay {
     display: flex;
     flex-flow: column nowrap;
@@ -279,4 +295,114 @@ hr {
     cursor: pointer;
     opacity: 65%;
     transition-duration: 200ms;
+}
+
+/* ---------- media queries ---------- */
+@media screen and (min-width: 768px) {
+    header {
+        flex-flow: column nowrap;
+        justify-content: stretch;
+        margin: 2rem auto 0px;
+    }
+
+    .employee-search {
+        padding: 1rem;
+        border-radius: 8px;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .employee-search span {
+        width: 100%;
+        align-self: center;
+        text-align: center;
+    }
+
+}
+@media screen and (min-width: 1024px) {
+    header,
+    footer,
+    .grid-container {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    header {
+        width: 100%;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header:first-child {
+        min-width: 500px;
+    }
+
+    .employee-search {
+        background-color: transparent;
+        align-items: center;
+        justify-content: flex-end;
+        flex-flow: row wrap;
+        padding: 0px;
+        max-width: 35%;
+    }
+
+    .employee-search span {
+        margin: 0.5rem;
+        width: 100%;
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header, .employee-search, .header-container{
+        flex-flow: row wrap;
+        justify-content: stretch;
+        align-content: center;
+        width: 100%;
+    }
+
+    header {
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    input {
+        flex-grow: 2;
+    }
+
+    button {
+        flex-shrink: 1;
+    }
+
+    input, button {
+        height: 3rem;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    h1 {
+        width: 100%;
+    }
+
+    .grid-container h1 {
+        padding: 2rem;
+    }
+
+    .employee-search .header-container {
+        flex-flow: row nowrap;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        justify-content: space-between;
+        align-content: stretch;
+    }
+
+    .employee-search span {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
 }
