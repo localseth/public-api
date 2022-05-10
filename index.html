@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,500;8..144,600&display=swap" rel="stylesheet">
     <link rel='stylesheet' type='text/css' media='screen' href='css/normalize.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
-    
+    <script src="https://kit.fontawesome.com/12de075505.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,13 +21,15 @@
         <label for="search" class="employee-search header-container">
             <span>Find an employee</span>
             <input id="search" type="text" name="filter" placeholder="Search by name...">
-            <button type="button" value="Search">Search</button>
+            <button id="search-button" type="button" value="Search">Search</button>
         </label>
     </header>
     <main class="grid-container">
         <div class="overlay hidden">
             <div class="modal">
                 <p class="modal-close">X</p>
+                <span class="fa-solid fa-circle-arrow-left fa-2xl"></span>
+                <span class="fa-solid fa-circle-arrow-right fa-2xl"></span>
                 <div class="modal-content">
                    
                 </div>

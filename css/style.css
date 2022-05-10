@@ -1,3 +1,4 @@
+/* basic styles */
 html {
     background-color: #ececec;
 }
@@ -18,7 +19,6 @@ body {
 
 header {
     min-height: 8rem;
-    display: flex;
     flex-flow: row wrap;
     align-items: center;
     align-content: center;
@@ -31,7 +31,6 @@ footer {
     font-weight: 300;
     color: rgba(100, 100, 100, 0.5);
     /* background-color: rgb(196, 206, 215); */
-    display: flex;
     flex-flow: column;
     align-self: center;
     justify-content: flex-end;
@@ -40,6 +39,11 @@ footer {
     order: 1;
     padding: 3rem;
     margin-top: auto;
+}
+
+header,  main, footer {
+    flex-shrink: 0;
+    display: flex;
 }
 
 h1, h2, h3 {
@@ -58,11 +62,6 @@ p {
     color: #778;
 }
 
-.card .name{
-    font-weight: 600;
-    text-align: left;
-}
-
 .social {
     height: 32px;
     width: auto;
@@ -70,6 +69,117 @@ p {
     margin: 1rem;
 }
 
+.header-container {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+button {
+    height: 2.75rem;
+    margin: 0px;
+    font-size: 1rem;
+    padding: 0px 1rem;
+    border: 1px solid #778;
+    border-left: none;
+    border-radius: 0px 4px 4px 0px; 
+}
+
+input {
+    box-sizing: border-box;
+    font-family: 'Roboto Flex', sans-serif;
+    height: 2.75rem;
+    padding-left: 0.5rem;
+    padding-right: 0px;
+    margin: 0px 0px 0px 1rem;
+    border-radius: 4px 0px 0px 4px;
+    border: 1px solid #778;
+}
+
+input:focus,
+input:focus-visible,
+button:focus {
+    border-color: lightskyblue;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(100, 100, 100, 0.25);
+}
+
+input::placeholder {
+    font-size: 1rem;
+    color: rgb(145, 145, 145);
+}
+
+.employee-search {
+    font-weight: 200;
+    font-size: 1.25rem;
+}
+
+/* card styles */
+.card {
+    display: flex;
+    flex-flow: row nowrap;
+    align-self: start;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    align-content: space-between;
+    align-items: center;
+    flex-basis: 0;
+    background-color: #f4f4f4;
+    padding: 0.5rem;
+    margin: 0.75rem;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+    min-width: 300px;
+    text-align: left;
+    box-shadow: 0px 0px 3px rgba(100, 100, 100, 0.15);
+}
+
+.card:hover {
+    cursor: default;
+    opacity: 0.65;
+    border-color: lightskyblue;
+    transition-duration: 200ms;
+}
+
+.card img {
+    padding: 0.5rem;
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    align-self: flex-start;
+}
+
+
+.card .name{
+    font-weight: 600;
+    text-align: left;
+}
+
+.grid-container {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 1;
+    align-content: flex-start;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 0rem auto 0.5rem;
+    padding: 0.5rem;
+    min-width: 320px;
+    max-width: 1500px;
+}
+
+.text-container p {
+    font-family: 'Roboto Flex', monospace;
+    font-weight: 200;
+    line-height: 0.75;
+}
+
+
+/* overlay styles */
 .overlay {
     display: flex;
     flex-flow: column nowrap;
@@ -108,8 +218,8 @@ p {
 .modal-close {
     font-weight: bold;
     position: absolute;
-    right: 15px;
-    top: 5px;
+    right: 1.5rem;
+    top: 0.5rem;
     width: 1rem;
     height: 1rem;
     cursor: pointer;
@@ -137,60 +247,11 @@ p {
     margin: 1.75rem auto;
 }
 
-.text-container p {
-    font-family: 'Roboto Flex', monospace;
-    font-weight: 200;
-}
-
-.card {
-    display: flex;
-    flex-flow: row nowrap;
-    align-self: start;
-    flex-grow: 1;
-    justify-content: space-evenly;
-    align-content: space-between;
-    align-items: center;
-    flex-basis: 0;
-    background-color: #f4f4f4;
-    padding: 0.5rem;
-    margin: 0.75rem;
-    border: 1px solid darkgrey;
-    border-radius: 4px;
-    min-width: 300px;
-    text-align: left;
-    box-shadow: 0px 0px 3px rgba(100, 100, 100, 0.15);
-}
-
-.card:hover {
-    cursor: default;
-}
-
-.card img {
-    padding: 0.5rem;
-    max-width: 100px;
-    height: auto;
-    border-radius: 50%;
-    align-self: flex-start;
-}
-
 .modal img {
     width: 128px;
     height: 128px;
     margin: auto;
     border-radius: 50%;
-}
-
-.grid-container {
-    display: flex;
-    flex-flow: row wrap;
-    flex-grow: 1;
-    align-content: flex-start;
-    align-items: stretch;
-    justify-content: space-between;
-    margin: 0rem auto 0.5rem;
-    padding: 0.5rem;
-    min-width: 320px;
-    max-width: 1500px;
 }
 
 hr {
@@ -200,54 +261,22 @@ hr {
     align-self: center;
 }
 
-header,  main, footer {
-    flex-shrink: 0;
+.fa-circle-arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    color: black;
 }
 
-.header-container {
-    display: flex;
-    flex-flow: row nowrap;
-    margin: 0rem 1.5rem;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
+.fa-circle-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    color: black; 
 }
 
-input {
-    box-sizing: border-box;
-    font-family: 'Roboto Flex', sans-serif;
-    height: 2.75rem;
-    padding-left: 0.5rem;
-    padding-right: 0px;
-    margin: 0px 0px 0px 1rem;
-    border-radius: 4px 0px 0px 4px;
-    border: 1px solid #778;
-}
-
-input:focus,
-input:focus-visible,
-button:focus {
-    border-color: lightskyblue;
-    box-sizing: border-box;
-    outline: none;
-}
-
-button {
-    height: 2.75rem;
-    margin: 0px;
-    font-size: 1rem;
-    padding: 0px 1rem;
-    border: 1px solid #778;
-    border-left: none;
-    border-radius: 0px 4px 4px 0px; 
-}
-
-input::placeholder {
-    font-size: 1rem;
-    color: rgb(145, 145, 145);
-}
-
-.employee-search {
-    font-weight: 200;
-    font-size: 1.25rem;
+.modal span:hover {
+    cursor: pointer;
+    opacity: 65%;
+    transition-duration: 200ms;
 }
